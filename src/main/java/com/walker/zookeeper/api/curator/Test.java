@@ -15,12 +15,15 @@ import java.util.List;
  */
 public class Test {
     public static void main(String[] args) {
-        CuratorFramework client = ZookeeperUtil.newClient("192.168.23.242:2181");
-        client.start();
-
-
 
         try {
+
+//            CuratorFramework client = ZookeeperUtil.newClient("192.168.23.242:2181");
+            CuratorFramework client = ZookeeperUtil.newClient("localhost:2181");
+
+            client.start();
+
+            System.out.println(client.isStarted());
             //检查目录
             Stat stat = client.checkExists().forPath("/test/walker");
 
